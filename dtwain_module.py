@@ -7,6 +7,7 @@ from ctypes import windll
 import tkinter.messagebox as messagebox
 import imageio
 import sys
+import dtwain
 
 # Define your conditions
 USE_UNICODE = False
@@ -15,7 +16,6 @@ USE_64_BIT = False
 # Conditional imports based on the conditions
 if USE_UNICODE:
     if USE_64_BIT:
-        from dtwain_x64_unicode import dtwain
         dtwain_dll = "./dtwain64u.dll"
         dtwain_lib = "./dtwain64u.lib"
         dtwain_pdb = "./dtwain64u.pdb"
@@ -24,7 +24,6 @@ if USE_UNICODE:
         twain_language = "./twainlanguage.txt"
         twain_resource_strings = "./twainresourcestrings_english.txt"
     else:
-        from dtwain_x86_unicode import dtwain
         dtwain_dll = "./dtwain32u.dll"
         dtwain_lib = "./dtwain32u.lib"
         dtwain_pdb = "./dtwain32u.pdb"
@@ -34,7 +33,6 @@ if USE_UNICODE:
         twain_resource_strings = "./twainresourcestrings_english.txt"
 else:
     if USE_64_BIT:
-        from dtwain_x64 import dtwain
         dtwain_dll = "./dtwain64.dll"
         dtwain_lib = "./dtwain64.lib"
         dtwain_pdb = "./dtwain64.pdb"
@@ -43,7 +41,6 @@ else:
         twain_language = "./twainlanguage.txt"
         twain_resource_strings = "./twainresourcestrings_english.txt"
     else:
-        from dtwain_x86 import dtwain
         dtwain_dll = "./dtwain32.dll"
         dtwain_lib = "./dtwain32.lib"
         dtwain_pdb = "./dtwain32.pdb"
